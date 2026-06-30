@@ -59,6 +59,7 @@ export default function ChartPage() {
       />
 
       <div
+        className="chart-grid-responsive"
         style={{
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 380px)',

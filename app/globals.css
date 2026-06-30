@@ -631,6 +631,11 @@ input[type="number"] {
     padding: 10px 6px !important;
     gap: 6px !important;
   }
+  .chart-grid-responsive {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    margin-top: 16px !important;
+  }
 }
 
 @media (max-width: 359px) {

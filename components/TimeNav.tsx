@@ -84,7 +84,7 @@ export default function TimeNav({
     <div className="mb-3">
       {/* Tab 行 */}
       <div
-        className="flex items-center rounded-xl p-1 gap-1"
+        className="flex items-center rounded-xl p-1 gap-1 overflow-x-auto"
         style={{ background: 'var(--t-surface)', border: '1px solid var(--t-border)' }}
       >
         {/* 本命 */}
@@ -188,7 +188,7 @@ function TabButton({
   return (
     <button
       onClick={onClick}
-      className="flex-1 py-1.5 text-[10px] font-medium rounded-lg transition-all duration-200"
+      className="flex-1 shrink-0 py-1.5 text-[10px] font-medium rounded-lg transition-all duration-200"
       style={{
         background: active ? 'rgba(212,168,67,0.12)' : 'transparent',
         color: active ? 'var(--t-gold)' : 'var(--t-faint)',
