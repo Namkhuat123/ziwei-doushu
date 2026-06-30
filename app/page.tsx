@@ -113,7 +113,7 @@ const FEATURES = [
   {
     tag: 'AI giải đọc',
     title: 'Giải đọc sâu\nKhông chỉ là xem bói',
-    subtitle: 'Cơ sở tri thức hệ thống Ni Hải Hạ × Claude AI',
+    subtitle: 'Cơ sở tri thức hệ thống Ni Hải Hạ × AI',
     points: [
       'Phân tích mệnh cách: Bắt đầu từ cung Mệnh chính tinh, kết hợp Tam phương Tứ chính, đưa ra đánh giá toàn diện về tính cách và cục diện cuộc đời',
       'Giải đọc 6 chiều: Hướng sự nghiệp, hôn nhân tình duyên, mô hình tài vận, chú ý sức khỏe, quan hệ gia đình, duyên phận con cái',
