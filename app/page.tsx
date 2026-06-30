@@ -42,39 +42,47 @@ function ThemeToggle() {
   return (
     <motion.button
       onClick={toggle}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.93 }}
+      whileHover={{ scale: 1.1, rotate: 15 }}
+      whileTap={{ scale: 0.9 }}
       aria-label={isDark ? 'Chế độ sáng' : 'Chế độ tối'}
-      className="flex items-center gap-2 px-3 py-1.5 rounded-full border"
+      className="relative w-9 h-9 rounded-full flex items-center justify-center"
       style={{
-        borderColor: isDark ? 'rgba(212,168,67,0.3)' : 'rgba(140,100,20,0.35)',
-        background: isDark ? 'rgba(255,255,255,0.05)' : 'rgba(255,252,242,0.85)',
-        transition: 'background 0.35s ease, border-color 0.35s ease',
+        background: isDark
+          ? 'linear-gradient(135deg, rgba(20,16,48,0.9), rgba(40,30,80,0.9))'
+          : 'linear-gradient(135deg, rgba(255,240,180,0.9), rgba(255,220,120,0.9))',
+        border: `1.5px solid ${isDark ? 'rgba(212,168,67,0.35)' : 'rgba(180,130,30,0.4)'}`,
+        boxShadow: isDark
+          ? '0 0 12px rgba(212,168,67,0.15), inset 0 1px 2px rgba(0,0,0,0.3)'
+          : '0 0 12px rgba(255,200,60,0.3), inset 0 1px 2px rgba(255,255,255,0.5)',
+        transition: 'background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease',
       }}
     >
-      <div className="relative w-10 h-5 rounded-full flex-shrink-0"
-        style={{
-          background: isDark ? 'rgba(12,24,64,0.95)' : 'rgba(230,195,80,0.55)',
-          transition: 'background 0.35s ease',
-        }}>
-        <motion.div
-          animate={{ x: isDark ? 2 : 22 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-          className="absolute top-1 w-3.5 h-3.5 rounded-full"
-          style={{
-            background: isDark
-              ? 'linear-gradient(135deg, #b8a050, #e8d090)'
-              : 'linear-gradient(135deg, #e89010, #f8d050)',
-          }}
-        />
-      </div>
-      <span className="text-[11px] font-medium tracking-wide select-none"
-        style={{
-          color: isDark ? 'rgba(212,180,100,0.85)' : 'rgba(110,72,8,0.8)',
-          transition: 'color 0.35s ease',
-        }}>
-        {isDark ? 'Tối' : 'Sáng'}
-      </span>
+      <motion.div
+        animate={{ rotate: isDark ? 0 : 180 }}
+        transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+        style={{ lineHeight: 1 }}
+      >
+        {isDark ? (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+              fill="rgba(212,180,100,0.9)" stroke="rgba(212,168,67,0.5)" strokeWidth="1" />
+          </svg>
+        ) : (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="5" fill="rgba(200,140,20,0.95)" stroke="rgba(160,100,10,0.5)" strokeWidth="1" />
+            <g stroke="rgba(200,140,20,0.7)" strokeWidth="1.5" strokeLinecap="round">
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+          </svg>
+        )}
+      </motion.div>
     </motion.button>
   );
 }
