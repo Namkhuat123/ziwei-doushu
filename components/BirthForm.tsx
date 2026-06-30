@@ -247,12 +247,12 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
             <select
               value={form.year}
               onChange={e => { setForm({ ...form, year: e.target.value }); setTouched(t => ({ ...t, year: true })); }}
-              style={showErr('year') && errors.year ? errorInputStyle : inputStyle}
+              style={{ ...(showErr('year') && errors.year ? errorInputStyle : inputStyle), fontSize: '15px', padding: '12px 14px' }}
               required
             >
-              <option value="">Năm</option>
+              <option value="" style={{ fontSize: '15px', background: '#1a1a2e', color: '#e8eef8' }}>Năm</option>
               {Array.from({ length: 127 }, (_, i) => 2026 - i).map(yr => (
-                <option key={yr} value={String(yr)}>{yr}</option>
+                <option key={yr} value={String(yr)} style={{ fontSize: '15px', background: '#1a1a2e', color: '#e8eef8' }}>{yr}</option>
               ))}
             </select>
             <FieldError msg={showErr('year') ? errors.year : ''} />
@@ -261,12 +261,12 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
             <select
               value={form.month}
               onChange={e => { setForm({ ...form, month: e.target.value }); setTouched(t => ({ ...t, month: true })); }}
-              style={showErr('month') && errors.month ? errorInputStyle : inputStyle}
+              style={{ ...(showErr('month') && errors.month ? errorInputStyle : inputStyle), fontSize: '15px', padding: '12px 14px' }}
               required
             >
-              <option value="">Tháng</option>
+              <option value="" style={{ fontSize: '15px', background: '#1a1a2e', color: '#e8eef8' }}>Tháng</option>
               {Array.from({ length: 12 }, (_, i) => i + 1).map(mo => (
-                <option key={mo} value={String(mo)}>{mo} tháng</option>
+                <option key={mo} value={String(mo)} style={{ fontSize: '15px', background: '#1a1a2e', color: '#e8eef8' }}>{mo} tháng</option>
               ))}
             </select>
             <FieldError msg={showErr('month') ? errors.month : ''} />
@@ -275,12 +275,12 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
             <select
               value={form.day}
               onChange={e => { setForm({ ...form, day: e.target.value }); setTouched(t => ({ ...t, day: true })); }}
-              style={showErr('day') && errors.day ? errorInputStyle : inputStyle}
+              style={{ ...(showErr('day') && errors.day ? errorInputStyle : inputStyle), fontSize: '15px', padding: '12px 14px' }}
               required
             >
-              <option value="">Ngày</option>
+              <option value="" style={{ fontSize: '15px', background: '#1a1a2e', color: '#e8eef8' }}>Ngày</option>
               {Array.from({ length: 31 }, (_, i) => i + 1).map(dy => (
-                <option key={dy} value={String(dy)}>{dy}</option>
+                <option key={dy} value={String(dy)} style={{ fontSize: '15px', background: '#1a1a2e', color: '#e8eef8' }}>{dy}</option>
               ))}
             </select>
             <FieldError msg={showErr('day') ? errors.day : ''} />
@@ -295,26 +295,26 @@ export default function BirthForm({ onSubmit, loading, initialData, onFormSave, 
           <select
             value={form.province}
             onChange={e => handleProvince(e.target.value)}
-            style={inputStyle}
+            style={{ ...inputStyle, fontSize: '15px', padding: '12px 14px', borderRadius: '14px' }}
             onFocus={e => { e.target.style.borderColor = focusBorder; }}
             onBlur={e => { e.target.style.borderColor = inputBorder; }}
           >
-            <option value="">Chọn tỉnh / thành phố</option>
+            <option value="" style={{ fontSize: '15px', padding: '8px', background: '#1a1a2e', color: '#e8eef8' }}>Chọn tỉnh / thành phố</option>
             {PROVINCES.map(p => (
-              <option key={p.name} value={p.name}>{p.name}</option>
+              <option key={p.name} value={p.name} style={{ fontSize: '15px', padding: '8px', background: '#1a1a2e', color: '#e8eef8' }}>{p.name}</option>
             ))}
           </select>
           <select
             value={form.city}
             onChange={e => handleCity(e.target.value)}
             disabled={!form.province}
-            style={{ ...inputStyle, opacity: form.province ? 1 : 0.45 }}
+            style={{ ...inputStyle, fontSize: '15px', padding: '12px 14px', borderRadius: '14px', opacity: form.province ? 1 : 0.45 }}
             onFocus={e => { e.target.style.borderColor = focusBorder; }}
             onBlur={e => { e.target.style.borderColor = inputBorder; }}
           >
-            <option value="">{form.province ? 'Chọn địa danh' : 'Chọn tỉnh trước'}</option>
+            <option value="" style={{ fontSize: '15px', padding: '8px', background: '#1a1a2e', color: '#e8eef8' }}>{form.province ? 'Chọn địa danh' : 'Chọn tỉnh trước'}</option>
             {cityList.map(c => (
-              <option key={c.name} value={c.name}>{c.name}</option>
+              <option key={c.name} value={c.name} style={{ fontSize: '15px', padding: '8px', background: '#1a1a2e', color: '#e8eef8' }}>{c.name}</option>
             ))}
           </select>
         </div>
