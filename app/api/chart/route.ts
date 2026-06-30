@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { generateChart } from '@/lib/ziwei/algorithm';
 import { calcTrueSolarBranch } from '@/lib/ziwei/share';
+import { PALACE_NAME_VI, STAR_NAME_VI } from '@/lib/ziwei/constants';
 
 export const runtime = 'edge';
 
@@ -32,7 +33,21 @@ export async function POST(req: NextRequest) {
       longitude,
     });
 
-    return new Response(JSON.stringify(chart), {
+    const translated = {
+      ...chart,
+      palaces: chart.palaces.map(p => ({
+        ...p,
+        nameVi: PALACE_NAME_VI[p.name] ?? p.name,
+        stars: p.stars.map(s => ({
+          ...s,
+          nameVi: STAR_NAME_VI[s.name] ?? s.name,
+        })),
+      })),
+      palaceNameVi: PALACE_NAME_VI,
+      starNameVi: STAR_NAME_VI,
+    };
+
+    return new Response(JSON.stringify(translated), {
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (error: any) {
