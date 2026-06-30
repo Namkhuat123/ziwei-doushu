@@ -44,7 +44,7 @@ function ThemeToggle() {
       onClick={toggle}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.93 }}
-      aria-label={isDark ? '切换亮色主题' : '切换暗色主题'}
+      aria-label={isDark ? 'Chế độ sáng' : 'Chế độ tối'}
       className="flex items-center gap-2 px-3 py-1.5 rounded-full border"
       style={{
         borderColor: isDark ? 'rgba(212,168,67,0.3)' : 'rgba(140,100,20,0.35)',
@@ -73,7 +73,7 @@ function ThemeToggle() {
           color: isDark ? 'rgba(212,180,100,0.85)' : 'rgba(110,72,8,0.8)',
           transition: 'color 0.35s ease',
         }}>
-        {isDark ? '暗色' : '亮色'}
+        {isDark ? 'Tối' : 'Sáng'}
       </span>
     </motion.button>
   );
@@ -81,10 +81,10 @@ function ThemeToggle() {
 
 // ─── 主星数据 ────────────────────────────────────────────
 const STARS = [
-  { name: '紫微' }, { name: '天机' }, { name: '太阳' }, { name: '武曲' },
-  { name: '天同' }, { name: '廉贞' }, { name: '天府' }, { name: '太阴' },
-  { name: '贪狼' }, { name: '巨门' }, { name: '天相' }, { name: '天梁' },
-  { name: '七杀' }, { name: '破军' },
+  { name: 'Tử Vi' }, { name: 'Thiên Cơ' }, { name: 'Thái Dương' }, { name: 'Vũ Khúc' },
+  { name: 'Thiên Đồng' }, { name: 'Liêm Trinh' }, { name: 'Thiên Phủ' }, { name: 'Thái Âm' },
+  { name: 'Tham Lang' }, { name: 'Cự Môn' }, { name: 'Thiên Tướng' }, { name: 'Thiên Lương' },
+  { name: 'Thất Sát' }, { name: 'Phá Quân' },
 ];
 
 // ─── 功能模块 ────────────────────────────────────────────
@@ -94,7 +94,7 @@ const FEATURES = [
     title: 'Ni Hải Hạ chính thống\nTử Vi Đẩu Số',
     subtitle: 'Không phải bản rút gọn, tuân thủ nghiêm ngặt theo truyền thừa của thầy Ni Hải Hạ',
     points: [
-      'Dùng Âm Hành Ngũ Hành Cục khởi盘, không dùng thuật toán rút gọn trên mạng',
+      'Dùng Âm Hành Ngũ Hành Cục khởi số, không dùng thuật toán rút gọn trên mạng',
       'Mệnh cung nghịch toán giờ sinh, Thân cung thuận toán giờ sinh, đúng theo quy tắc giảng dạy',
       '14 chính tinh và Tứ hóa phi tinh theo nguyên pháp suy diễn, cấu trúc hoàn chỉnh có thể kiểm chứng',
     ],
@@ -117,8 +117,8 @@ const FEATURES = [
     points: [
       'Phân tích mệnh cách: Bắt đầu từ cung Mệnh chính tinh, kết hợp Tam phương Tứ chính, đưa ra đánh giá toàn diện về tính cách và cục diện cuộc đời',
       'Giải đọc 6 chiều: Hướng sự nghiệp, hôn nhân tình duyên, mô hình tài vận, chú ý sức khỏe, quan hệ gia đình, duyên phận con cái',
-      'Theo dõi Đại hạn Lưu niên: Trọng tâm Đại hạn 10 năm hiện tại, gợi ý cụ thể cho cung Lưu niên năm nay và hành động建议',
-      'Tự do hỏi lại: Đặt câu hỏi trực tiếp với lá số của bạn, \"Năm nay có đổi việc được không\" \"Khi nào vận结婚 tốt nhất\"',
+      'Theo dõi Đại hạn Lưu niên: Trọng tâm Đại hạn 10 năm hiện tại, gợi ý cụ thể cho cung Lưu niên năm nay và hành động cụ thể',
+      'Tự do hỏi lại: Đặt câu hỏi trực tiếp với lá số của bạn, "Năm nay có đổi việc được không" "Khi nào vận duyên phận tốt nhất"',
     ],
   },
   {
@@ -182,11 +182,11 @@ const SECTIONS = [
 const NI_TEACHINGS = [
   {
     title: 'Mệnh cung là bản thể, Tam phương là dụng',
-    body: 'Ni Sư luôn nhấn mạnh, xem mệnh必先 xem Mệnh cung. Chính tinh Mệnh cung quyết định cục diện cơ bản và tính cách bẩm sinh của một người, Tam phương (Tài Bạch, Quan Lộc, Diên)则 quyết định「địa dụng võ」của người đó. Bốn cung liên động mới là bức tranh cuộc đời hoàn chỉnh.',
+    body: 'Ni Sư luôn nhấn mạnh, xem mệnh trước hết phải xem Mệnh cung. Chính tinh Mệnh cung quyết định cục diện cơ bản và tính cách bẩm sinh của một người, Tam phương (Tài Bạch, Quan Lộc, Diên) thì quyết định「địa dụng võ」của người đó. Bốn cung liên động mới là bức tranh cuộc đời hoàn chỉnh.',
   },
   {
     title: 'Đối cung mượn sao, không được bỏ qua',
-    body: 'Điểm độc đáo của Ni Sư là coi trọng「đối cung」. Bất kỳ cung nào nếu là cung không,必借 đối cung sao tinh来 luận đoán, cung Mệnh đối diện là Diên cung, hai cung tương tác lẫn nhau, đây là điểm mà nhiều người mới容易bỏ qua.',
+    body: 'Điểm độc đáo của Ni Sư là coi trọng「đối cung」. Bất kỳ cung nào nếu là cung không, phải mượn đối cung sao tinh để luận đoán, cung Mệnh đối diện là Diên cung, hai cung tương tác lẫn nhau, đây là điểm mà nhiều người mới dễ bỏ qua.',
   },
   {
     title: 'Tứ hóa mới là bàn tay của vận mệnh',
@@ -243,28 +243,28 @@ function useColors() {
 
 // ─── 四化简介数据 ─────────────────────────────────────────
 const SIHUA_BRIEF: Record<string, { attr: string; brief: string }> = {
-  '化禄': { attr: 'Cát hóa · Tăng ích', brief: 'Phú tinh đáo cung, chủ tài vận và phúc khí tăng ích. Cung vị sở tại sự vật thuận lợi, năng lực tăng cường, là hóa tinh được hoan nghênh nhất trong lá số.' },
-  '化权': { attr: 'Cát hóa · Quyền uy', brief: 'Quyền lực tinh đáo cung, chủ nắm giữ và lãnh đạo lực. Cung vị sở tại chủ强势 và quyết đoán, hỷ nhập Quan Lộc cung và Mệnh cung, chủ sự nghiệp có thực quyền.' },
-  '化科': { attr: 'Cát hóa · Danh dự', brief: 'Khoa danh tinh đáo cung, chủ thanh danh và quý nhân duyên. Cung vị sở tại chủ văn danh và khảo vận, có quý nhân phù trì, nghi học thuật, khảo thí và场合 công khai.' },
-  '化Ki忌': { attr: 'Hung hóa · Chướng ngại', brief: 'Kiếp số tinh đáo cung, chủ chấp niệm và chướng ngại. Cung vị sở tại cần đặc biệt chú ý,课题 nhân sinh sẽ trở thành thử thách quan trọng.' },
+  'Hóa Lộc': { attr: 'Cát hóa · Tăng ích', brief: 'Phú tinh đáo cung, chủ tài vận và phúc khí tăng ích. Cung vị sở tại sự vật thuận lợi, năng lực tăng cường, là hóa tinh được hoan nghênh nhất trong lá số.' },
+  'Hóa Quyền': { attr: 'Cát hóa · Quyền uy', brief: 'Quyền lực tinh đáo cung, chủ nắm giữ và lãnh đạo lực. Cung vị sở tại chủcường thế và quyết đoán, hỷ nhập Quan Lộc cung và Mệnh cung, chủ sự nghiệp có thực quyền.' },
+  'Hóa Khoa': { attr: 'Cát hóa · Danh dự', brief: 'Khoa danh tinh đáo cung, chủ thanh danh và quý nhân duyên. Cung vị sở tại chủ văn danh và khảo vận, có quý nhân phù trì, nghi học thuật, khảo thí và hội trường công khai.' },
+  'Hóa Kỵ': { attr: 'Hung hóa · Chướng ngại', brief: 'Kiếp số tinh đáo cung, chủ chấp niệm và chướng ngại. Cung vị sở tại cần đặc biệt chú ý, vấn đề nhân sinh sẽ trở thành thử thách quan trọng.' },
 };
 
 // ─── 主星简介数据 ─────────────────────────────────────────
 const STAR_BRIEF: Record<string, { attr: string; brief: string }> = {
-  '紫微': { attr: '土·帝王星', brief: '天皇贵星，统御众星。坐命者有孤傲之气，主权威显达，天生具备领导气质，适合独当一面的领导岗位。' },
-  '天机': { attr: '木·智慧星', brief: '益寿星，主智谋与变动。聪慧机灵，善于筹谋，心思细腻，宜从事策划、顾问、技术类工作。' },
-  '太阳': { attr: '火·官禄主', brief: '官禄主星，主声誉与名望。慷慨大度，重视公众形象，利官场与公职，男命力强，入庙时光明磊落。' },
-  '武曲': { attr: '金·财帛主', brief: '财帛主星，主财务与决断。意志坚定，行动果敢，适合财务、金融、军警类职业，孤克之星，利晚婚。' },
-  '天同': { attr: '水·福星', brief: '福德主星，主享乐与人缘。性情温和，人缘极好，注重生活品质，感情细腻，晚年运势佳。' },
-  '廉贞': { attr: '火·才艺星', brief: '次桃花星，主才艺与情欲。才华出众，感情丰富，适合艺术、政界，多才多艺但需防桃花是非。' },
-  '天府': { attr: '土·财库星', brief: '南斗主星，主财库与积蓄。稳重保守，理财能力强，是命盘的稳定力量，适合管理财务与行政。' },
-  '太阴': { attr: '水·田宅主', brief: '田宅主星，主财富与阴柔。细腻温柔，感受力强，女命尤佳，利不动产与积蓄，适合文艺或服务业。' },
-  '贪狼': { attr: '木水·桃花', brief: '桃花星，主欲望与才艺。多才多艺，欲望旺盛，社交活跃，宜从事艺术、公关、商业，人缘极好。' },
-  '巨门': { attr: '水·是非星', brief: '暗星，主口才与是非。口才出众，思辨能力强，适合律师、教育、媒体，注意口舌是非，以辩才立身。' },
-  '天相': { attr: '水·印星', brief: '印星，主辅佐与印绶。善于协调，重视礼节，正直守法，适合幕僚、行政、法律类工作，贵人运佳。' },
-  '天梁': { attr: '土·荫星', brief: '荫星，主老成与荫蔽。正直稳重，慈悲心强，老天爷会保佑，适合医疗、社会工作、宗教领域。' },
-  '七杀': { attr: '金火·将星', brief: '将星，主刚烈与开创。性格刚毅，行动力强，勇于挑战，适合创业、军警、竞争性行业，逢凶化吉。' },
-  '破军': { attr: '水·耗星', brief: '耗星，主变动与开拓。勇于突破，不惧改变，一生变动大但有魄力，适合开拓型工作，走别人没走过的路。' },
+  'Tử Vi': { attr: 'Thổ · Đế vương', brief: 'Sao quý nhất trong Tử Vi, thống ngự các sao. Mệnh nhân có khí cô ngạo, chủ uy quyền hiển đạt, bẩm sinh có khí chất lãnh đạo, phù hợp vị trí lãnh đạo độc đương nhất diện.' },
+  'Thiên Cơ': { attr: 'Mộc · Trí tuệ', brief: 'Sao trường thọ, chủ mưu lược và biến động. Thông tuệ linh hoạt, thiện mưu lược, tâm tư tế nhị, hợp làm lập hoạch, cố vấn, kỹ thuật.' },
+  'Thái Dương': { attr: 'Hỏa · Quan Lộc chủ', brief: 'Sao Quan Lộc, chủ thanh danh và danh vọng. Hào phóng độ lượng, coi trọng hình tượng công chúng, lợi quan trường và công chức, nam mệnh lực mạnh, nhập miếu thì quang minh lỗi lạc.' },
+  'Vũ Khúc': { attr: 'Kim · Tài bạc chủ', brief: 'Sao tài bạc, chủ tài chính và quyết đoán. Ý chí kiên định, hành động quả cảm, hợp tài chính, tài chính, quân cảnh, là sao cô khắc, lợi hôn nhân trễ.' },
+  'Thiên Đồng': { attr: 'Thủy · Phúc tinh', brief: 'Sao Phúc Đức, chủ hưởng lạc và nhân duyên. Tính tình ôn hòa, nhân duyên cực tốt, coi trọng phẩm chất sống, tình cảm tế nhị, vận thế tuổi già tốt.' },
+  'Liêm Trinh': { attr: 'Hỏa · Tài nghệ tinh', brief: 'Sao thứ đào hoa, chủ tài nghệ và tình dục. Tài hoa xuất chúng, tình cảm phong phú, hợp nghệ thuật, chính giới, đa tài đa nghệ nhưng cần đề phòng đào hoa thị phi.' },
+  'Thiên Phủ': { attr: 'Thổ · Tài khố tinh', brief: 'Sao Nam Đẩu, chủ tài khố và tích lũy. Ổn trọng bảo thủ, lý tài năng lực mạnh, là sức mạnh ổn định của lá số, hợp quản lý tài chính và hành chính.' },
+  'Thái Âm': { attr: 'Thủy · Điền trạch chủ', brief: 'Sao Điền trạch, chủ tài phú và âm nhu. Tế nhị ôn nhu, cảm nhận lực mạnh, nữ mệnh càng tốt, lợi bất động sản và tích lũy, hợp văn nghệ hoặc dịch vụ.' },
+  'Tham Lang': { attr: 'Mộc Thủy · Đào hoa', brief: 'Sao đào hoa, chủ dục vọng và tài nghệ. Đa tài đa nghệ, dục vọng cường thịnh, xã giao hoạt bát, hợp nghệ thuật, quan hệ công chúng, kinh doanh, nhân duyên cực tốt.' },
+  'Cự Môn': { attr: 'Thủy · Thị phi tinh', brief: 'Sao tối, chủ khẩu tài và thị phi. Khẩu tài xuất chúng, tư biện năng lực mạnh, hợp luật sư, giáo dục, truyền thông, cần chú ý khẩu thiệt thị phi, lấy biện tài lập thân.' },
+  'Thiên Tướng': { attr: 'Thủy · Ấn tinh', brief: 'Sao Ấn, chủ phụ tá và ấn thụ. Thiện điều phối, coi trọng lễ tiết, chính trực thủ pháp, hợp làm phụ tá, hành chính, pháp luật, quý nhân vận gia.' },
+  'Thiên Lương': { attr: 'Thổ · Ân tinh', brief: 'Sao Ân, chủ lão thành và ân bế. Chính trực ổn trọng, từ bi tâm mạnh, ông trời sẽ phù hộ, hợp y tế, xã hội công tác, tôn giáo lĩnh vực.' },
+  'Thất Sát': { attr: 'Kim Hỏa · Tướng tinh', brief: 'Sao Tướng, chủ cương liệt và khai sáng. Tính cách cương nghị, hành động lực mạnh, dũng cảm khiêu chiến, hợp sáng nghiệp, quân cảnh, cạnh tranh ngành, hung hóa cát.' },
+  'Phá Quân': { attr: 'Thủy · Hào tinh', brief: 'Sao Hào, chủ biến động và khai phá. Dũng cảm đột phá, không sợ thay đổi, một đời biến động lớn nhưng có phách lực, hợp khai thác công tác, đi con đường người khác chưa đi.' },
 };
 
 // ─── 功能视觉装饰 ────────────────────────────────────────
@@ -304,8 +304,8 @@ function FeatureVisual({ index, colors: c }: { index: number; colors: ReturnType
     return (
       <div className="flex flex-col gap-4 h-full justify-center">
         {[
-          { group: '紫微系', stars: ['紫微', '天机', '太阳', '武曲', '天同', '廉贞'] },
-          { group: '天府系', stars: ['天府', '太阴', '贪狼', '巨门', '天相', '天梁', '七杀', '破军'] },
+          { group: 'Hệ Tử Vi', stars: ['Tử Vi', 'Thiên Cơ', 'Thái Dương', 'Vũ Khúc', 'Thiên Đồng', 'Liêm Trinh'] },
+          { group: 'Hệ Thiên Phủ', stars: ['Thiên Phủ', 'Thái Âm', 'Tham Lang', 'Cự Môn', 'Thiên Tướng', 'Thiên Lương', 'Thất Sát', 'Phá Quân'] },
         ].map(group => (
           <div key={group.group}>
             <div className="text-[11px] tracking-widest mb-2 transition-colors duration-300"
@@ -333,7 +333,7 @@ function FeatureVisual({ index, colors: c }: { index: number; colors: ReturnType
           <div className="text-[11px] tracking-widest mb-2 transition-colors duration-300"
             style={{ color: c.textFaint }}>Tứ hóa phi tinh</div>
           <div className="flex gap-2 flex-wrap">
-            {[['化禄', 'rgba(52,211,153,0.7)'], ['化权', 'rgba(96,165,250,0.7)'], ['化科', 'rgba(250,204,21,0.7)'], ['化忌', 'rgba(248,113,113,0.7)']].map(([label, color]) => (
+            {[['Hóa Lộc', 'rgba(52,211,153,0.7)'], ['Hóa Quyền', 'rgba(96,165,250,0.7)'], ['Hóa Khoa', 'rgba(250,204,21,0.7)'], ['Hóa Kỵ', 'rgba(248,113,113,0.7)']].map(([label, color]) => (
               <motion.button key={label}
                 onClick={() => setSel(sel === label ? null : label)}
                 whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}
@@ -372,7 +372,7 @@ function FeatureVisual({ index, colors: c }: { index: number; colors: ReturnType
   if (index === 2) {
     const msgs = [
       { role: 'user', text: 'Năm nay vận sự nghiệp của tôi thế nào?' },
-      { role: 'ai', text: 'Cung Mệnh Thiên Cơ hóa Lộc, năm nay Đại hạn đi cung Quan Lộc, Tam phương có T佐 phù trợ, sự nghiệp có quý nhân hỗ trợ, thích hợp chủ động mở rộng…' },
+      { role: 'ai', text: 'Cung Mệnh Thiên Cơ hóa Lộc, năm nay Đại hạn đi cung Quan Lộc, Tam phương có sao phù trợ, sự nghiệp có quý nhân hỗ trợ, thích hợp chủ động mở rộng…' },
       { role: 'user', text: 'Khi nào vận tình cảm tốt nhất?' },
     ];
     return (
@@ -479,7 +479,7 @@ export default function HomePage() {
         }}>
         <div className="text-[11px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] font-medium transition-colors duration-300 flex-shrink-0"
           style={{ color: c.goldSolid }}>
-          紫微命盘
+          Tử Vi Đẩu Số
         </div>
         <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
           <ThemeToggle />
@@ -544,7 +544,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, delay: 0.65 }}
             className="text-sm max-w-xl mx-auto leading-relaxed mb-10"
             style={{ color: c.textMuted }}>
-            Nhập ngày giờ sinh, tạo lá số Tử Vi Đẩu Số riêng — các模块 học Thiên Kỷ, Địa Kỷ, Nhân Kỷ sẽ陆续 mở ra.
+            Nhập ngày giờ sinh, tạo lá số Tử Vi Đẩu Số riêng — các modules học Thiên Kỷ, Địa Kỷ, Nhân Kỷ sẽ từ từ mở ra.
           </motion.p>
 
           {/* CTA */}
@@ -657,7 +657,7 @@ export default function HomePage() {
             transition: 'background 0.4s ease',
           }} />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-          <span className="font-bold" style={{ fontSize: 'clamp(220px, 38vw, 460px)', color: 'rgba(212,168,67,0.012)', lineHeight: 1, fontFamily: 'serif' }}>命</span>
+          <span className="font-bold" style={{ fontSize: 'clamp(220px, 38vw, 460px)', color: 'rgba(212,168,67,0.012)', lineHeight: 1, fontFamily: 'serif' }}>Mệnh</span>
         </div>
         <FadeIn className="relative mx-auto text-center w-full" y={20}>
           <div className="flex items-center justify-center gap-4 mb-8">
@@ -704,7 +704,7 @@ export default function HomePage() {
             Phương pháp luận của Ni Sư · Từ từ mở ra
           </div>
           <div className="text-xs lg:text-sm tracking-[0.1em]" style={{ color: c.textMuted }}>
-            Bắt đầu từ Tử Vi, dần mở các模块 Thiên Kỷ / Địa Kỷ / Nhân Kỷ
+            Bắt đầu từ Tử Vi, dần mở các modules Thiên Kỷ / Địa Kỷ / Nhân Kỷ
           </div>
         </FadeIn>
 
@@ -872,7 +872,7 @@ export default function HomePage() {
               </div>
               <h2 className={`grad-text grad-text-dark font-bold mb-5 tracking-tight`}
                 style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}>
-                天 · 地 · 人
+                Thiên · Địa · Nhân
               </h2>
               <p className="max-w-2xl mx-auto text-sm leading-relaxed" style={{ color: c.textSecond }}>
                 Quan điểm vận mệnh cốt lõi của thầy Ni Hải Hạ: Vận mệnh không bao giờ là toàn bộ cuộc đời.<br />
@@ -882,9 +882,9 @@ export default function HomePage() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
             {[
-              { glyph: '天', label: 'Vận mệnh tiên thiên', pct: '⅓', color: c.goldSolid, borderColor: c.goldLine, desc: 'Tử Vi Đẩu Số tiết lộ là cục diện mệnh tiên thiên của một người — bố trí sao do thời gian sinh quyết định, số cục Ngũ Hành, chính tinh cung Mệnh. Đây chỉ là một phần ba vận mệnh, là nền tảng cuộc đời, không phải toàn貌.', sub: 'Lá số · Sao · Ngũ Hành' },
-              { glyph: '地', label: 'Địa lý môi trường', pct: '⅓', color: 'rgba(96,165,250,0.9)', borderColor: 'rgba(96,165,250,0.3)', desc: 'Môi trường địa lý, thành phố, quốc gia, phong thủy, thậm chí bối cảnh gia đình và cấu trúc xã hội, cùng tạo nên chiều thứ hai của vận mệnh. Cùng một lá số, sinh ở nơi khác nhau, hoàn cảnh có thể khác biệt một trời một vực.', sub: 'Địa phương · Phong thủy · Môi trường' },
-              { glyph: '人', label: 'Ý niệm con người', pct: '⅓', color: 'rgba(100,216,139,0.9)', borderColor: 'rgba(100,216,139,0.3)', desc: 'Ý chí, tâm thái, lựa chọn và hành động của bản thân mới là sức mạnh chủ động nhất thay đổi vận mệnh. Ni Sư nhấn mạnh: Hiểu lá số là để làm người tốt hơn, chứ không phải ngồi chờ vận mệnh sắp đặt. Tu luyện bản thân, là con đường phá局 mạnh nhất.', sub: 'Ý chí · Lựa chọn · Hành động' },
+              { glyph: 'Thiên', label: 'Vận mệnh tiên thiên', pct: '⅓', color: c.goldSolid, borderColor: c.goldLine, desc: 'Tử Vi Đẩu Số tiết lộ là cục diện mệnh tiên thiên của một người — bố trí sao do thời gian sinh quyết định, số cục Ngũ Hành, chính tinh cung Mệnh. Đây chỉ là một phần ba vận mệnh, là nền tảng cuộc đời, không phải toàn bộ.', sub: 'Lá số · Sao · Ngũ Hành' },
+              { glyph: 'Địa', label: 'Địa lý môi trường', pct: '⅓', color: 'rgba(96,165,250,0.9)', borderColor: 'rgba(96,165,250,0.3)', desc: 'Môi trường địa lý, thành phố, quốc gia, phong thủy, thậm chí bối cảnh gia đình và cấu trúc xã hội, cùng tạo nên chiều thứ hai của vận mệnh. Cùng một lá số, sinh ở nơi khác nhau, hoàn cảnh có thể khác biệt một trời một vực.', sub: 'Địa phương · Phong thủy · Môi trường' },
+              { glyph: 'Nhân', label: 'Ý niệm con người', pct: '⅓', color: 'rgba(100,216,139,0.9)', borderColor: 'rgba(100,216,139,0.3)', desc: 'Ý chí, tâm thái, lựa chọn và hành động của bản thân mới là sức mạnh chủ động nhất thay đổi vận mệnh. Ni Sư nhấn mạnh: Hiểu lá số là để làm người tốt hơn, chứ không phải ngồi chờ vận mệnh sắp đặt. Tu luyện bản thân, là con đường phá cục mạnh nhất.', sub: 'Ý chí · Lựa chọn · Hành động' },
             ].map((item, i) => (
               <FadeIn key={item.glyph} delay={0.1 + i * 0.12}>
                 <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.1 }}
@@ -910,9 +910,9 @@ export default function HomePage() {
           <FadeIn delay={0.3}>
             <div className="mt-10 text-center">
               <p className="text-sm leading-relaxed" style={{ color: c.textSecond }}>
-                「Vận mệnh không phải là toàn bộ cuộc đời,加上 địa lý và ý niệm của con người, mới là.」
+                「Vận mệnh không phải là toàn bộ cuộc đời, cộng thêm địa lý và ý niệm của con người, mới là.」
               </p>
-              <p className="mt-2 text-[10px] tracking-widest" style={{ color: c.tagText }}>— 倪海夏</p>
+              <p className="mt-2 text-[10px] tracking-widest" style={{ color: c.tagText }}>— Ni Hải Hạ</p>
             </div>
           </FadeIn>
         </div>
@@ -931,7 +931,7 @@ export default function HomePage() {
               </div>
               <h2 className={`grad-text grad-text-dark font-bold mb-6 tracking-tight`}
                 style={{ fontSize: 'clamp(32px, 4vw, 48px)' }}>
-                倪海夏老师
+                Thầy Ni Hải Hạ
               </h2>
               <p className="max-w-2xl mx-auto leading-relaxed text-sm" style={{ color: c.textSecond }}>
                 Một trong những bậc thầy Y học cổ truyền và Thuật số có ảnh hưởng nhất trong cộng đồng Hoa kiều đương đại<br />
@@ -946,7 +946,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 {[
                 { label: 'Sinh', value: 'Năm 1954', sub: 'Đài Loan' },
-                { label: 'Mất', value: 'Năm 2012', sub: 'Ngày 31 tháng 1 ·享年58' },
+                { label: 'Mất', value: 'Năm 2012', sub: 'Ngày 31 tháng 1 · thọ 58 tuổi' },
                 { label: 'Truyền thừa', value: 'Tử Vi Đẩu Số', sub: 'Y học cổ truyền · Kinh Dịch' },
                 ].map(item => (
                   <div key={item.label} className="text-center rounded-xl px-4 py-3"
@@ -960,38 +960,38 @@ export default function HomePage() {
               <div className="h-px mb-8" style={{ background: c.niDivider }} />
               <div className="space-y-4 text-sm leading-relaxed max-w-3xl mx-auto" style={{ color: c.textSecond }}>
                 <p>
-                  <strong style={{ color: c.goldSolid }}>Lý lịch</strong>：
-                  倪海夏先生（1954–2012）出生于台湾，早年师承多位中医名家，专研经方派（《伤寒论》传承）。
-                  中年赴美行医，在美国创立<strong>汉唐中医学院</strong>，二十余年间系统传授中医与传统术数。
-                  2012 年 1 月 31 日因肝癌在台湾离世，享年 58 岁。
+                  <strong style={{ color: c.goldSolid }}>Lý lịch</strong>:
+                  Thầy Ni Hải Hạ (1954-2012) sinh tại Đài Loan, từ nhỏ học nhiều vị thầy giỏi, chuyên nghiên cứu kinh phái (truyền thừa Thương Hàn Luận).
+                  Trung niên sang Hoa Kỳ hành y, sáng lập<strong>Học viện Hán Đường Y học cổ truyền</strong>, hơn 20 năm hệ thống truyền thụ Y học cổ truyền và thuật số truyền thống.
+                  Ngày 31 tháng 1 năm 2012 vì ung thư gan tại Đài Loan từ trần, thọ 58 tuổi.
                 </p>
                 <p>
-                  <strong style={{ color: c.goldSolid }}>Hệ thống giảng dạy</strong>：
-                  倪师将毕生所学整理为两大公开教学系列。
-                  <strong>「Nhân Kỷ」</strong>涵盖《Châm Cứu Đại Thành》《Thần Nông Bản Thảo Kinh》《Hoàng Đế Nội Kinh》《Thương Hàn Luận》《Kim Quy Yếu Lược》——
-                  这是「Nhân chi kỷ」，奠定中医学习的完整路径；
-                  <strong>「Thiên Kỷ」</strong>涵盖 Tử Vi Đẩu Số与《Kinh Dịch》——这是「Thiên chi kỷ」，是术数研究的体系化成果。
-                  两者相合，是倪师留给后世最完整的传承。
+                  <strong style={{ color: c.goldSolid }}>Hệ thống giảng dạy</strong>:
+                  Thầy Ni tổng hợp những gì học được thành hai hệ thống giảng dạy công khai.
+                  <strong>「Nhân Kỷ」</strong>gồm Châm Cứu Đại Thành, Thần Nông Bản Thảo Kinh, Hoàng Đế Nội Kinh, Thương Hàn Luận, Kim Quy Yếu Lược
+                  - đây là「Nhân chi kỷ」, đặt nền tảng con đường học Y học cổ truyền hoàn chỉnh;
+                  <strong>「Thiên Kỷ」</strong>gồm Tử Vi Đẩu Số và Kinh Dịch - đây là「Thiên chi kỷ」, là thành quả hệ thống hóa nghiên cứu thuật số.
+                  Hai hệ thống kết hợp, là di sản hoàn chỉnh nhất mà thầy Ni để lại cho hậu thế.
                 </p>
                 <p>
-                  <strong style={{ color: c.goldSolid }}>Lập trường Tử Vi</strong>：
-                  倪师在紫微斗数上明确属<strong>南派三合派</strong>，主张「以命宫为本、以三方四正为用、以四化为纲」。
-                  他在《天纪》课程中明言：「<em>飞星（四化）飞来飞去太复杂，不搞这个，毕竟大道至简</em>」——
-                  这一立场将其与繁琐的飞星派清晰区分。
+                  <strong style={{ color: c.goldSolid }}>Lập trường Tử Vi</strong>:
+                  Thầy Ni trong Tử Vi Đẩu Số thuộc<strong>phái Tam hợp Nam phái</strong>, chủ trương「lấy Mệnh cung làm gốc, lấy Tam phương Tứ chính làm dụng, lấy Tứ hóa làm cương」.
+                  Trong khóa học「Thiên Kỷ」thầy nói rõ:「<em>Phi tinh (Tứ hóa) bay tới bay lui quá phức tạp, không làm cái này, rốt cuộc đại đạo chí giản</em>」
+                  - lập trường này phân biệt rõ ràng với phái Phi tinh phức tạp.
                 </p>
                 <p>
-                  <strong style={{ color: c.goldSolid }}>Thái độ học thuật</strong>：
-                  倪师反对死记硬背口诀，强调「理解原理胜过背诵」「逻辑可复核胜过神秘玄学」。
-                  这种态度让紫微斗数从师徒密传的封闭体系，走向系统化、可验证、可学习的现代知识体系。
+                  <strong style={{ color: c.goldSolid }}>Thái độ học thuật</strong>:
+                  Thầy Ni phản đối cách học vẹt khẩu quyết, nhấn mạnh「hiểu nguyên lý hơn là thuộc lòng」「logic có thể kiểm chứng hơn là huyền bí」.
+                  Thái độ này khiến Tử Vi Đẩu Số từ hệ thống kín truyền bế mật đồ đệ, trở nên hệ thống hóa, có thể kiểm chứng, có thể học được kiến thức hiện đại.
                 </p>
                 <p>
-                  <strong style={{ color: c.goldSolid }}>Ảnh hưởng đương đại</strong>：
-                  倪师的讲课视频在 B 站、YouTube 与各大平台广泛流传，是新一代命理与中医爱好者公认的入门必修。
-                  他不仅是紫微斗数的传承者，更是把传统命理与中医带入现代知识体系的关键人物之一。
+                  <strong style={{ color: c.goldSolid }}>Ảnh hưởng đương đại</strong>:
+                  Video giảng dạy của thầy Ni được lan truyền rộng rãi trên Bilibili, YouTube và các nền tảng lớn, được công nhận là bài học bắt buộc của thế hệ mới yêu thích mệnh lý và Y học cổ truyền.
+                  Thầy không chỉ là người truyền thừa Tử Vi Đẩu Số, mà còn là một trong những nhân vật quan trọng nhất đưa mệnh lý truyền thống và Y học cổ truyền vào hệ thống kiến thức hiện đại.
                 </p>
                 <p style={{ fontSize: '11px', color: c.textMuted, fontStyle: 'italic', marginTop: '12px' }}>
-                  本平台所有解读基于倪师《天纪》公开教学讲义、《紫微斗数全书》明版、传统三合派古籍整理而成，
-                  仅作文化与个人成长参考。倪师本人与本平台无任何商业关联。
+                  Tất cả các giải đọc trên nền tảng này dựa trên giáo trình giảng dạy công khai「Thiên Kỷ」của thầy Ni, bản minh 「Tử Vi Đẩu Số Toàn Thư」, và các sách cổ phái Tam hợp truyền thống được biên soạn lại,
+                  chỉ mang tính tham khảo văn hóa và phát triển bản thân. Thầy Ni và nền tảng này không có bất kỳ liên kết thương mại nào.
                 </p>
               </div>
             </div>
@@ -1035,14 +1035,14 @@ export default function HomePage() {
               </div>
               <h2 className={`grad-text grad-text-dark font-bold mb-4 tracking-tight`}
                 style={{ fontSize: 'clamp(26px, 3.5vw, 40px)' }}>
-                紫微合盘
+                Tử Vi hợp bàn
               </h2>
               <p className="text-sm leading-relaxed mb-8 max-w-lg mx-auto" style={{ color: c.textSecond }}>
                 Nhập thông tin sinh của hai người, AI dựa trên hệ thống Ni Hải Hạ phân tích cung Phu Thê tương tham, tương hợp Mệnh cung và tương tác Tam phương Tứ chính,<br className="hidden md:block" />
                 đưa ra mức độ tương hợp tình cảm, khả năng hợp tác kinh doanh và gợi ý quan hệ tốt nhất.
               </p>
               <div className="flex justify-center gap-3 flex-wrap mb-6">
-                {['Phân tích tương hợp tình cảm', 'Đánh giá hợp tác kinh doanh', 'Giải đọc duyên phận cha mẹ', 'Đánh giá tương hợp trước婚'].map(item => (
+                {['Phân tích tương hợp tình cảm', 'Đánh giá hợp tác kinh doanh', 'Giải đọc duyên phận cha mẹ', 'Đánh giá tương hợp trước hôn nhân'].map(item => (
                   <span key={item} style={{
                     fontSize: '12px', padding: '5px 14px', borderRadius: '20px',
                     background: 'rgba(200,148,42,0.06)',
