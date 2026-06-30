@@ -43,6 +43,10 @@ export async function POST(req: NextRequest) {
           nameVi: STAR_NAME_VI[s.name] ?? s.name,
         })),
       })),
+      daXians: (chart.daXians || []).map((dx: any) => ({
+        ...dx,
+        palaceNameVi: PALACE_NAME_VI[dx.palaceName] ?? dx.palaceName,
+      })),
       palaceNameVi: PALACE_NAME_VI,
       starNameVi: STAR_NAME_VI,
     };
