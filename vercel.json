@@ -1,0 +1,24 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "env": {
+    "AI_PROVIDER": "@ai_provider",
+    "DEEPSEEK_API_KEY": "@deepseek_api_key",
+    "OPENAI_API_KEY": "@openai_api_key",
+    "MIMO_API_KEY": "@mimo_api_key",
+    "MIMO_BASE_URL": "@mimo_base_url",
+    "MIMO_MODEL": "@mimo_model"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    }
+  ]
+}
