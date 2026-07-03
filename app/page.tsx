@@ -253,45 +253,45 @@ function useColors() {
     };
   }
 
-  // Light mode — tone nâu-tranh cổ điển
+  // Light mode — Đông phương cổ điển
   return {
-    bgBase:       '#f5f0e6',
-    navBg:        'rgba(245, 240, 230, 0.95)',
-    navBorder:    'rgba(140, 100, 20, 0.18)',
-    goldGrad:     'linear-gradient(160deg, #6a4210 0%, #9a6a20 30%, #b8862a 55%, #9a6a20 75%, #6a4210 100%)',
-    goldSolid:    '#7a5210',
-    goldLine:     'rgba(140, 100, 20, 0.20)',
-    tagText:      'rgba(140, 100, 20, 0.45)',
-    textPrimary:  'rgba(80, 50, 10, 0.92)',
-    textSecond:   'rgba(90, 60, 15, 0.82)',
-    textMuted:    'rgba(120, 85, 25, 0.60)',
-    textFaint:    'rgba(160, 120, 40, 0.35)',
-    accent:       '#8a6018',
-    accentSoft:   'rgba(160, 120, 30, 0.08)',
-    cardBg:       'rgba(255, 252, 242, 0.95)',
-    cardBorder:   'rgba(160, 120, 30, 0.15)',
-    cardShadow:   '0 4px 24px rgba(120,80,20,0.10)',
-    featureBg:    'rgba(248, 244, 232, 0.95)',
-    featureBord:  'rgba(160, 120, 30, 0.12)',
-    glowTint:     'rgba(200, 160, 60, 0.06)',
-    glowBlue:     'rgba(100, 160, 248, 0.05)',
-    glowPurple:   'rgba(120, 50, 180, 0.03)',
-    niBg:         'rgba(250, 246, 236, 0.98)',
-    niBorder:     'rgba(140, 100, 20, 0.18)',
-    niDivider:    'rgba(140, 100, 20, 0.12)',
-    niCardBg:     'rgba(252, 248, 238, 0.98)',
-    niCardBord:   'rgba(140, 100, 20, 0.15)',
-    niCardShadow: '0 2px 16px rgba(120,80,20,0.08)',
-    starBg:       'rgba(160, 120, 30, 0.06)',
-    starBorder:   'rgba(160, 120, 30, 0.15)',
-    starText:     'rgba(100, 70, 15, 0.75)',
-    ctaBg:        'linear-gradient(135deg, #6a4210, #9a6a20, #6a4210)',
-    ctaText:      '#faf6ec',
-    footerText:   'rgba(140, 100, 20, 0.35)',
-    scrollLine:   'rgba(140, 100, 20, 0.25)',
-    scrollText:   'rgba(140, 100, 20, 0.18)',
-    altSection:   'rgba(200, 170, 80, 0.06)',
-    quoteBg:      'rgba(248, 244, 232, 0.98)',
+    bgBase:       '#F5EFE8',
+    navBg:        'rgba(245, 239, 232, 0.95)',
+    navBorder:    'rgba(92, 58, 46, 0.15)',
+    goldGrad:     'linear-gradient(160deg, #4A2E22 0%, #5C3A2E 30%, #6B4A3A 55%, #5C3A2E 75%, #4A2E22 100%)',
+    goldSolid:    '#5C3A2E',
+    goldLine:     'rgba(92, 58, 46, 0.18)',
+    tagText:      'rgba(92, 58, 46, 0.40)',
+    textPrimary:  'rgba(61, 42, 30, 0.95)',
+    textSecond:   'rgba(80, 55, 35, 0.85)',
+    textMuted:    'rgba(110, 80, 50, 0.60)',
+    textFaint:    'rgba(150, 115, 75, 0.38)',
+    accent:       '#5C3A2E',
+    accentSoft:   'rgba(92, 58, 46, 0.06)',
+    cardBg:       'rgba(255, 252, 245, 0.95)',
+    cardBorder:   'rgba(184, 169, 217, 0.20)',
+    cardShadow:   '0 4px 24px rgba(92,58,46,0.08)',
+    featureBg:    'rgba(250, 246, 238, 0.95)',
+    featureBord:  'rgba(184, 169, 217, 0.18)',
+    glowTint:     'rgba(184, 169, 217, 0.06)',
+    glowBlue:     'rgba(100, 160, 248, 0.04)',
+    glowPurple:   'rgba(184, 169, 217, 0.05)',
+    niBg:         'rgba(252, 248, 240, 0.98)',
+    niBorder:     'rgba(184, 169, 217, 0.20)',
+    niDivider:    'rgba(92, 58, 46, 0.12)',
+    niCardBg:     'rgba(255, 252, 245, 0.98)',
+    niCardBord:   'rgba(184, 169, 217, 0.20)',
+    niCardShadow: '0 2px 16px rgba(92,58,46,0.06)',
+    starBg:       'rgba(92, 58, 46, 0.05)',
+    starBorder:   'rgba(184, 169, 217, 0.20)',
+    starText:     'rgba(80, 55, 35, 0.80)',
+    ctaBg:        'linear-gradient(135deg, #4A2E22, #5C3A2E, #4A2E22)',
+    ctaText:      '#FAF6EC',
+    footerText:   'rgba(92, 58, 46, 0.40)',
+    scrollLine:   'rgba(184, 169, 217, 0.25)',
+    scrollText:   'rgba(92, 58, 46, 0.20)',
+    altSection:   'rgba(184, 169, 217, 0.05)',
+    quoteBg:      'rgba(250, 246, 238, 0.98)',
   };
 }
 
@@ -491,6 +491,7 @@ function FeatureVisual({ index, colors: c }: { index: number; colors: ReturnType
 export default function HomePage() {
   const router = useRouter();
   const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const c = useColors();
 
   const heroRef = useRef(null);
@@ -510,11 +511,18 @@ export default function HomePage() {
   }, [c.bgBase]);
 
   return (
-    <div style={{ background: c.bgBase, transition: 'background 0.35s ease' }} className="overflow-x-hidden">
+    <div style={{
+      background: c.bgBase,
+      transition: 'background 0.35s ease',
+      border: isDark ? 'none' : '1px solid rgba(184,169,217,0.35)',
+      borderRadius: isDark ? '0' : '16px',
+      margin: isDark ? '0' : '8px',
+      minHeight: isDark ? 'auto' : 'calc(100vh - 16px)',
+    }} className="overflow-x-hidden">
       {/* 致用户公告——首次访问全屏覆盖，关闭后才进入首页 */}
       <AnnouncementModal />
 
-      <StarField />
+      {isDark && <StarField />}
 
       {/* 全局光晕 */}
       <div className="fixed inset-0 pointer-events-none z-0">
@@ -577,6 +585,7 @@ export default function HomePage() {
               style={{
                 fontSize: 'clamp(56px, 10vw, 124px)',
                 letterSpacing: '0.07em',
+                fontFamily: isDark ? undefined : '"Ma Shan Zheng", "ZCOOL XiaoWei", cursive',
               }}>
               Lá Số Tử Vi
             </h1>

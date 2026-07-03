@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap');
+
 /* ═══ THẨM MỸ MỰC TƯỚU — Design System ═══════════════════ */
 :root {
   /* ── Nền — đen sâu nhiều lớp ── */
@@ -43,6 +45,31 @@
   --r-sharp: 1px;
   --r-sm: 2px;
   --r-md: 3px;
+}
+
+/* ═══ LIGHT MODE — Đông phương cổ điển ══════════════════════ */
+html.light {
+  --ink-0: #F5EFE8;
+  --ink-1: #EDE6DA;
+  --ink-2: #E8E0D2;
+  --ink-card: rgba(255, 252, 242, 0.95);
+
+  --gold-primary: #5C3A2E;
+  --gold-bright: #7A5240;
+  --gold-deep: #4A2E22;
+  --gold-gradient: linear-gradient(160deg, #4A2E22 0%, #6B4A3A 30%, #8A6A52 55%, #6B4A3A 75%, #4A2E22 100%);
+
+  --tx-gold: rgba(80, 50, 10, 0.92);
+  --tx-dim: rgba(120, 85, 25, 0.60);
+  --tx-muted: rgba(160, 120, 40, 0.40);
+  --tx-body: rgba(90, 60, 15, 0.82);
+
+  --border-subtle: rgba(184, 169, 217, 0.20);
+  --border-mid: rgba(184, 169, 217, 0.30);
+  --border-strong: rgba(184, 169, 217, 0.45);
+  --border-accent: rgba(184, 169, 217, 0.55);
+
+  --font-calligraphy: 'Ma Shan Zheng', 'ZCOOL XiaoWei', cursive;
 }
 
 /* ═══ TOÀN CỤC ═════════════════════════════════════════════ */
