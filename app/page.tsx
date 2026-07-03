@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { PROVINCES } from '@/lib/ziwei/cities';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import StarField from '@/components/StarField';
 import { useTheme, type Theme } from '@/components/ThemeProvider';
@@ -499,6 +500,26 @@ export default function HomePage() {
   const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
+  // Province / City state for birth place
+  const [province, setProvince] = useState<string>('');
+  const [city, setCity] = useState<string>('');
+  const [cityList, setCityList] = useState<{ name: string; longitude: number }[]>([]);
+
+  const handleProvince = (prov: string) => {
+    setProvince(prov);
+    const provData = PROVINCES.find(p => p.name === prov);
+    if (provData) {
+      setCityList(provData.cities);
+      setCity(provData.cities[0]?.name || '');
+    } else {
+      setCityList([]);
+      setCity('');
+    }
+  };
+  const handleCity = (cityName: string) => {
+    setCity(cityName);
+  };
+
   // 把 body / html 背景同步到 home 主题色，消除半透明 nav 透出 #fafaf9 的色差
   // useLayoutEffect 保证在浏览器绘制前同步更新，避免与根 div 的 transition 不同步
   useLayoutEffect(() => {
@@ -610,10 +631,10 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* ══ HERO ══════════════════════════════════════════ */}
+{/* ══ HERO ══════════════════════════════════════════ */}
       <section ref={heroRef} className="relative min-h-[82svh] lg:min-h-[92vh] flex flex-col items-center justify-center px-6 z-10 pb-24 pt-10">
         <motion.div style={{ y: heroY, opacity: heroOpacity, maxWidth: '960px' }} className="text-center w-full mx-auto mt-10">
-          {/* 标签行 */}
+          {/* Tag line */}
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex items-center justify-center gap-3 mb-8">
@@ -624,7 +645,7 @@ export default function HomePage() {
             <div className="h-px w-12" style={{ background: `linear-gradient(to left, transparent, ${c.goldLine})` }} />
           </motion.div>
 
-          {/* 主标题 */}
+          {/* Main title - calligraphy style */}
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             style={{ position: 'relative', display: 'inline-block' }}>
@@ -647,38 +668,141 @@ export default function HomePage() {
           </motion.p>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.55 }}
-            className="text-xs md:text-sm tracking-[0.3em] mb-6"
+            className="text-xs md:text-sm tracking-[0.3em] mb-8"
             style={{ color: c.textMuted, opacity: 0.85 }}>
             AI giải đáp · Tri hành hợp nhất
           </motion.p>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.65 }}
-            className="text-sm max-w-xl mx-auto leading-relaxed mb-10"
-            style={{ color: c.textMuted }}>
-            Nhập ngày giờ sinh, tạo lá số Tử Vi Đẩu Số riêng — các modules học Thiên Kỷ, Địa Kỷ, Nhân Kỷ sẽ từ từ mở ra.
-          </motion.p>
 
-          {/* CTA */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.85 }}
-            className="flex flex-col items-center gap-4">
+          {/* Birth Form - 2 cột pill-shape */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.75 }}
+            className="w-full max-w-2xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              {/* Ngày sinh */}
+              <div className="relative">
+                <label className="sr-only">Ngày sinh (Dương lịch)</label>
+                <input
+                  type="date"
+                  className="w-full px-5 py-4 rounded-full bg-white/80 dark:bg-[#1a1a2e]/80 border-0 focus:ring-2 focus:ring-amber-500/30 text-base"
+                  style={{
+                    color: isDark ? '#e8eef8' : '#2a1a00',
+                    fontFamily: 'inherit',
+                    fontSize: '15px',
+                    background: isDark ? 'rgba(26,26,46,0.8)' : 'rgba(255,255,255,0.85)',
+                    border: isDark ? '1px solid rgba(212,168,67,0.15)' : '1px solid rgba(92,58,46,0.12)',
+                  }}
+                  placeholder="Ngày sinh (Dương lịch)"
+                  onFocus={(e) => { e.target.style.borderColor = isDark ? 'rgba(212,168,67,0.5)' : 'rgba(180,120,20,0.5)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = isDark ? 'rgba(212,168,67,0.15)' : 'rgba(92,58,46,0.12)'; }}
+                />
+              </div>
+              {/* Giờ sinh */}
+              <div className="relative">
+                <label className="sr-only">Giờ sinh</label>
+                <input
+                  type="time"
+                  className="w-full px-5 py-4 rounded-full bg-white/80 dark:bg-[#1a1a2e]/80 border-0 focus:ring-2 focus:ring-amber-500/30 text-base"
+                  style={{
+                    color: isDark ? '#e8eef8' : '#2a1a00',
+                    fontFamily: 'inherit',
+                    fontSize: '15px',
+                    background: isDark ? 'rgba(26,26,46,0.8)' : 'rgba(255,255,255,0.85)',
+                    border: isDark ? '1px solid rgba(212,168,67,0.15)' : '1px solid rgba(92,58,46,0.12)',
+                  }}
+                  placeholder="Giờ sinh"
+                  onFocus={(e) => { e.target.style.borderColor = isDark ? 'rgba(212,168,67,0.5)' : 'rgba(180,120,20,0.5)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = isDark ? 'rgba(212,168,67,0.15)' : 'rgba(92,58,46,0.12)'; }}
+                />
+              </div>
+            </div>
+            {/* Nơi sinh - full width */}
+            <div className="relative mb-6">
+              <label className="sr-only">Nơi sinh</label>
+              <select
+                value={province}
+                onChange={e => handleProvince(e.target.value)}
+                className="w-full px-5 py-4 rounded-full bg-white/80 dark:bg-[#1a1a2e]/80 border-0 focus:ring-2 focus:ring-amber-500/30 text-base appearance-none cursor-pointer"
+                style={{
+                  color: isDark ? '#e8eef8' : '#2a1a00',
+                  fontFamily: 'inherit',
+                  fontSize: '15px',
+                  background: isDark ? 'rgba(26,26,46,0.8)' : 'rgba(255,255,255,0.85)',
+                  border: isDark ? '1px solid rgba(212,168,67,0.15)' : '1px solid rgba(92,58,46,0.12)',
+                  paddingRight: '40px',
+                }}
+                onFocus={(e) => { e.target.style.borderColor = isDark ? 'rgba(212,168,67,0.5)' : 'rgba(180,120,20,0.5)'; }}
+                onBlur={(e) => { e.target.style.borderColor = isDark ? 'rgba(212,168,67,0.15)' : 'rgba(92,58,46,0.12)'; }}
+              >
+                <option value="" style={{ color: isDark ? 'rgba(200,175,120,0.5)' : 'rgba(120,85,25,0.5)' }}>Chọn nơi sinh (tính giờ mặt trời thực)</option>
+                {PROVINCES?.map((p: any) => (
+                  <option key={p.name} value={p.name} style={{ color: isDark ? '#e8eef8' : '#2a1a00', background: isDark ? '#1a1a2e' : '#fff' }}>{p.name}</option>
+                ))}
+              </select>
+              <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: isDark ? 'rgba(212,168,67,0.5)' : 'rgba(92,58,46,0.5)' }}>
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+            </div>
+
+            {/* City select - hiển thị khi đã chọn province */}
+            {province && (
+              <div className="relative mt-4 animate-fade-in">
+                <label className="sr-only">Chọn quận/huyện</label>
+                <select
+                  value={city}
+                  onChange={e => handleCity(e.target.value)}
+                  className="w-full px-5 py-4 rounded-full bg-white/80 dark:bg-[#1a1a2e]/80 border-0 focus:ring-2 focus:ring-amber-500/30 text-base appearance-none cursor-pointer"
+                  style={{
+                    color: isDark ? '#e8eef8' : '#2a1a00',
+                    fontFamily: 'inherit',
+                    fontSize: '15px',
+                    background: isDark ? 'rgba(26,26,46,0.8)' : 'rgba(255,255,255,0.85)',
+                    border: isDark ? '1px solid rgba(212,168,67,0.15)' : '1px solid rgba(92,58,46,0.12)',
+                    paddingRight: '40px',
+                  }}
+                  onFocus={(e) => { e.target.style.borderColor = isDark ? 'rgba(212,168,67,0.5)' : 'rgba(180,120,20,0.5)'; }}
+                  onBlur={(e) => { e.target.style.borderColor = isDark ? 'rgba(212,168,67,0.15)' : 'rgba(92,58,46,0.12)'; }}
+                >
+                  <option value="" style={{ color: isDark ? 'rgba(200,175,120,0.5)' : 'rgba(120,85,25,0.5)' }}>Chọn quận/huyện</option>
+                  {cityList.map(c => (
+                    <option key={c.name} value={c.name} style={{ color: isDark ? '#e8eef8' : '#2a1a00', background: isDark ? '#1a1a2e' : '#fff' }}>{c.name}</option>
+                  ))}
+                </select>
+                <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: isDark ? 'rgba(212,168,67,0.5)' : 'rgba(92,58,46,0.5)' }}>
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </div>
+              </div>
+            )}
+
+            {/* CTA full-width với con dấu đỏ */}
             <motion.button
-              whileHover={{ y: -2, filter: 'brightness(1.06)' }} whileTap={{ scale: 0.97 }}
+              whileHover={{ y: -2, filter: 'brightness(1.06)' }} whileTap={{ scale: 0.98 }}
               onClick={() => router.push('/chart')}
-              className="px-12 py-4 font-semibold text-base tracking-widest rounded-full"
-              style={{ background: c.ctaBg, color: c.ctaText }}>
-              Tạo lá số ngay
+              className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-full font-semibold text-lg tracking-widest transition-all duration-300 relative overflow-hidden"
+              style={{
+                background: isDark ? 'linear-gradient(135deg, #5a3a08, #c8942a, #5a3a08)' : 'linear-gradient(135deg, #4a2e22, #5c3a2e, #4a2e22)',
+                color: '#faf6ec',
+                boxShadow: '0 8px 32px rgba(92,58,46,0.3)',
+              }}>
+              <span className="relative z-10">Tạo lá số miễn phí</span>
+              {/* Con dấu đỏ nhỏ */}
+              <span className="absolute right-6 top-1/2 -translate-y-1/2" style={{ fontSize: '20px', lineHeight: 1 }}>
+                🖋️
+              </span>
             </motion.button>
           </motion.div>
 
-          {/* 十四主星 */}
+          {/* 14 chính tinh */}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ delay: 1.05, duration: 0.8 }}
-            className="mt-12 grid grid-cols-7 gap-1.5 max-w-[540px] mx-auto">
+            transition={{ delay: 1.3, duration: 0.8 }}
+            className="mt-14 grid grid-cols-7 gap-1.5 max-w-[540px] mx-auto">
             {STARS.map((star, i) => (
               <motion.div key={star.name}
                 initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.05 + i * 0.03, duration: 0.35 }}
+                transition={{ delay: 1.3 + i * 0.03, duration: 0.35 }}
                 className="flex items-center justify-center px-2 py-1 rounded-full"
                 style={{ background: c.starBg, border: `1px solid ${c.starBorder}` }}>
                 <span className="text-[11px] tracking-wide" style={{ color: c.starText }}>{star.name}</span>
@@ -687,47 +811,12 @@ export default function HomePage() {
           </motion.div>
         </motion.div>
 
-        {/* 上线公告便利贴 — 桌面端绝对定位右侧 */}
-        <motion.div
-          initial={{ opacity: 0, x: 30, rotate: 0 }}
-          animate={{ opacity: 1, x: 0, rotate: -4 }}
-          transition={{ delay: 1.4, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="absolute hidden lg:block pointer-events-none"
-          style={{
-            right: 'clamp(2%, 6vw, 8%)',
-            top: '54%',
-            maxWidth: '240px',
-          }}
-        >
-          <div style={{
-            background: 'linear-gradient(135deg, #fff5e3 0%, #ffe1c0 100%)',
-            border: '2px dashed rgba(232,132,62,0.45)',
-            borderRadius: '16px',
-            padding: '14px 18px',
-            boxShadow: '0 8px 24px rgba(196,90,45,0.18), 0 2px 6px rgba(196,90,45,0.1)',
-            fontFamily: '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif',
-          }}>
-            <div style={{ fontSize: '20px', marginBottom: '6px', lineHeight: 1 }}>🎁</div>
-            <div style={{ fontSize: '13px', lineHeight: 1.7, color: '#8b3a1a', fontWeight: 500 }}>
-              <span style={{ color: '#c45a2d', fontWeight: 700, fontSize: '14px' }}>5/1 — 5/8</span>
-              <span> Ưu đãi giới hạn</span>
-            </div>
-            <div style={{ fontSize: '13px', lineHeight: 1.7, color: '#8b3a1a', fontWeight: 500 }}>
-              Tất cả tính năng + AI hỏi đáp
-              <strong style={{ color: '#c45a2d' }}> Hoàn toàn miễn phí</strong>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 上线公告便利贴 — 手机端正常流式显示（hero 内容下方居中） */}
+        {/* Ưu đãi tag — mobile */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0, rotate: -2 }}
           transition={{ delay: 1.4, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="lg:hidden mx-auto mt-8 mb-2 pointer-events-none"
-          style={{
-            maxWidth: 'min(280px, 84vw)',
-          }}
+          className="lg:hidden mx-auto mt-10 mb-4 pointer-events-none max-w-[min(280px,84vw)]"
         >
           <div style={{
             background: 'linear-gradient(135deg, #fff5e3 0%, #ffe1c0 100%)',
@@ -749,7 +838,7 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* 滚动提示（绝对定位，不影响 hero opacity 计算） */}
+        {/* Scroll hint */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
           className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-2 pointer-events-none">
