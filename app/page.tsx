@@ -554,7 +554,7 @@ export default function HomePage() {
           </span>
         </div>
 
-        {/* Home + Menu phải */}
+        {/* Home + Menu + Hợp bàn phải */}
         <div className="flex items-center gap-2 flex-shrink-0">
           {/* Home icon */}
           <motion.button
@@ -572,6 +572,19 @@ export default function HomePage() {
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               <polyline points="9 22 9 12 15 12 15 22" />
             </svg>
+          </motion.button>
+
+          {/* Hợp bàn */}
+          <motion.button
+            whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+            onClick={() => router.push('/heming')}
+            className="text-[11px] sm:text-xs px-3 py-1.5 rounded-full transition-all duration-300 hidden sm:inline-flex"
+            style={{
+              background: isDark ? 'rgba(212,168,67,0.08)' : 'rgba(92,58,46,0.08)',
+              border: isDark ? '1px solid rgba(212,168,67,0.2)' : '1px solid rgba(92,58,46,0.2)',
+              color: isDark ? 'rgba(212,168,67,0.85)' : '#5C3A2E',
+            }}>
+            Hợp bàn
           </motion.button>
 
           {/* Theme toggle */}
