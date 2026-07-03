@@ -534,30 +534,79 @@ export default function HomePage() {
           style={{ background: `radial-gradient(ellipse, ${c.glowPurple} 0%, transparent 70%)` }} />
       </div>
 
-      {/* ── 顶部导航 ── nav 与 hero 同色（c.bgBase），无 blur 无 border，彻底无色差带 */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4 gap-2"
+      {/* ── Ink wash background for header ── */}
+      <div className="fixed top-0 left-0 right-0 h-20 pointer-events-none z-40"
         style={{
-          background: c.navBg,
-        }}>
-        <div className="text-[11px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] font-medium transition-colors duration-300 flex-shrink-0"
-          style={{ color: c.goldSolid }}>
-          Tử Vi Đẩu Số
+          background: isDark
+            ? 'linear-gradient(to bottom, rgba(7,5,12,0.8), transparent)'
+            : 'linear-gradient(to bottom, rgba(92,58,46,0.08), transparent)',
+          opacity: 0.6,
+        }} />
+
+      {/* ── Header ── nav với ink wash nền mờ, logo trái, home/menu phải ── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 gap-2"
+        style={{ background: isDark ? 'rgba(5,3,10,0.7)' : 'rgba(245,239,232,0.85)', backdropFilter: 'blur(8px)' }}>
+        {/* Logo trái */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="w-8 h-8 rounded-full flex items-center justify-center"
+            style={{
+              background: isDark ? 'rgba(212,168,67,0.15)' : 'rgba(92,58,46,0.12)',
+              border: isDark ? '1px solid rgba(212,168,67,0.25)' : '1px solid rgba(92,58,46,0.2)',
+            }}>
+            <span style={{
+              fontFamily: '"Ma Shan Zheng", "ZCOOL XiaoWei", cursive',
+              fontSize: '18px',
+              fontWeight: 500,
+              color: isDark ? 'rgba(212,168,67,0.9)' : '#5C3A2E',
+            }}>Tử</span>
+          </motion.div>
+          <span className="text-[11px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] font-medium hidden sm:block"
+            style={{ color: isDark ? 'rgba(212,168,67,0.85)' : '#5C3A2E' }}>
+            Tử Vi Đẩu Số
+          </span>
         </div>
-        <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
-          <ThemeToggle />
+
+        {/* Home + Menu phải */}
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {/* Home icon */}
           <motion.button
-            whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
-            onClick={() => router.push('/heming')}
-            className="text-[11px] sm:text-xs px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all duration-300"
-            style={{ border: `1px solid ${c.navBorder}`, color: c.textMuted }}>
-            Hợp bàn
+            whileHover={{ scale: 1.1, rotate: 10 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => router.push('/')}
+            aria-label="Trang chủ"
+            className="p-2 rounded-lg transition-colors"
+            style={{
+              background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(92,58,46,0.06)',
+              border: isDark ? '1px solid rgba(212,168,67,0.15)' : '1px solid rgba(92,58,46,0.12)',
+              color: isDark ? 'rgba(212,168,67,0.7)' : '#5C3A2E',
+            }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
           </motion.button>
+
+          {/* Theme toggle */}
+          <ThemeToggle />
+
+          {/* Hamburger menu */}
           <motion.button
-            whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
-            onClick={() => router.push('/chart')}
-            className="text-[11px] sm:text-xs px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full transition-all duration-300"
-            style={{ border: `1px solid ${c.goldLine}`, color: c.goldSolid }}>
-            Tạo lá số ngay
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label="Menu"
+            className="p-2 rounded-lg transition-colors"
+            style={{
+              background: isDark ? 'rgba(255,255,255,0.03)' : 'rgba(92,58,46,0.06)',
+              border: isDark ? '1px solid rgba(212,168,67,0.15)' : '1px solid rgba(92,58,46,0.12)',
+              color: isDark ? 'rgba(212,168,67,0.7)' : '#5C3A2E',
+            }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
           </motion.button>
         </div>
       </nav>
