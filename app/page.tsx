@@ -548,21 +548,7 @@ export default function HomePage() {
         style={{ background: isDark ? 'rgba(5,3,10,0.7)' : 'rgba(245,239,232,0.85)', backdropFilter: 'blur(8px)' }}>
         {/* Logo trái */}
         <div className="flex items-center gap-2 flex-shrink-0">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="w-8 h-8 rounded-full flex items-center justify-center"
-            style={{
-              background: isDark ? 'rgba(212,168,67,0.15)' : 'rgba(92,58,46,0.12)',
-              border: isDark ? '1px solid rgba(212,168,67,0.25)' : '1px solid rgba(92,58,46,0.2)',
-            }}>
-            <span style={{
-              fontFamily: '"Ma Shan Zheng", "ZCOOL XiaoWei", cursive',
-              fontSize: '18px',
-              fontWeight: 500,
-              color: isDark ? 'rgba(212,168,67,0.9)' : '#5C3A2E',
-            }}>Tử</span>
-          </motion.div>
-          <span className="text-[11px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] font-medium hidden sm:block"
+          <span className="text-[11px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] font-medium"
             style={{ color: isDark ? 'rgba(212,168,67,0.85)' : '#5C3A2E' }}>
             Tử Vi Đẩu Số
           </span>
